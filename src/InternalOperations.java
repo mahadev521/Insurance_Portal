@@ -6,21 +6,14 @@ public class InternalOperations {
 	public static Customer createCustomer() {
 		Customer customer = new Customer();
 		System.out.println("Customer ID: " + customer.getCustomerId());
-		System.out.print("Enter name: ");
-		customer.setName(sc.nextLine());
-		System.out.print("Enter email: ");
-		customer.setEmail(sc.nextLine());
-		System.out.print("Enter password: ");
-		customer.setPassword(sc.nextLine());
-		System.out.print("Enter Address: ");
-		customer.setAddress(sc.nextLine());
-		System.out.print("Enter contact number: ");
-		customer.setContactNumber(sc.nextLine());
-		System.out.print("Enter nominee name: ");
-		customer.setNomineeName(sc.nextLine());
-		System.out.print("Enter relationship with nominee: ");
-		customer.setNomineeRelation(sc.nextLine());
-		System.out.println("confirm registration (y/n)? ");
+		customer.setName();
+		customer.setEmail();
+		customer.setPassword();
+		customer.setAddress();
+		customer.setContactNumber();
+		customer.setNomineeName();
+		customer.setNomineeRelation();
+		System.out.print("confirm registration (y/n): ");
 		if (sc.next().equals("y")) {
 			return customer;
 		} else {

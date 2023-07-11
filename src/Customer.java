@@ -1,7 +1,7 @@
-import java.util.Random;
+import java.util.Scanner;
 
 public class Customer {
-
+	static Scanner sc = new Scanner(System.in);
 	private int customerId;
 	private String name;
 	private String email;
@@ -12,10 +12,39 @@ public class Customer {
 	private String contactNumber;
 
 	Customer() {
-		customerId = generateRandomNumber();
+		customerId = Utility.generateRandomNumber();
 		if (Resources.isIdExists(customerId)) {
-			customerId = generateRandomNumber();
+			customerId = Utility.generateRandomNumber();
 		}
+	}
+
+	public void setName() {
+		name = Utility.setStringParameter("name");
+	}
+
+	public void setPassword() {
+		password = Utility.setStringParameter("password");
+	}
+
+	public void setEmail() {
+		email = Utility.setStringParameter("email");
+	}
+
+	public void setAddress() {
+		address = Utility.setStringParameter("address");
+	}
+
+	public void setContactNumber() {
+		contactNumber = Utility.setStringParameter("Contact Number");
+	}
+
+	public void setNomineeName() {
+		nomineeName = Utility.setStringParameter("Nominee name");
+	}
+
+	public void setNomineeRelation() {
+		System.out.print("enter Nominee relation: ");
+		nomineeRelation = sc.nextLine();
 	}
 
 	public int getCustomerId() {
@@ -26,68 +55,35 @@ public class Customer {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getEmail() {
 		return email;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getAddress() {
 		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getNomineeName() {
 		return nomineeName;
 	}
 
-	public void setNomineeName(String nomineeName) {
-		this.nomineeName = nomineeName;
-	}
-
 	public String getNomineeRelation() {
 		return nomineeRelation;
-	}
-
-	public void setNomineeRelation(String nomineeRelation) {
-		this.nomineeRelation = nomineeRelation;
 	}
 
 	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
-
-	public static int generateRandomNumber() {
-		Random random = new Random();
-		int min = 100_000, max = 999_999;
-		return random.nextInt(max - min + 1) + min;
-	}
 
 	@Override
 	public String toString() {
-		return "Customer Details\ncustomerId: " + customerId + "\nname: " + name + "\nemail: " + email + "\npassword=" + password
-				+ "\naddress: " + address + "\nnomineeName: " + nomineeName + "\nnomineeRelation: " + nomineeRelation
+		return "Customer Details\ncustomerId: " + customerId + "\nname: " + name + "\nemail: " + email + "\naddress: "
+				+ address + "\nnomineeName: " + nomineeName + "\nnomineeRelation: " + nomineeRelation
 				+ "\ncontactNumber: " + contactNumber;
 	}
 
